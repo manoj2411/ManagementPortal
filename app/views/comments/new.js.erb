@@ -1,0 +1,4 @@
+$('.reply_modal').modal('hide');
+$('.reply_modal').remove();
+$('body').append('<%=j render("comments/reply_modal") %>');
+$('.reply_modal').modal('show');

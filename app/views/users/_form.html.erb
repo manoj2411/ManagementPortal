@@ -1,0 +1,17 @@
+<%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :email %>
+  <%= error_span(@user[:email]) %>
+
+  <%= f.input :name %>
+  <%= error_span(@user[:name]) %>
+
+  <%= f.input :role, collection: [['Data Collection Executive', 3], ['Data Moderator', 2], ['Manager', 1]], include_blank: false %>
+  <%= error_span(@user[:role]) %>
+
+  <br>
+  <%= f.button :submit, :class => 'btn-primary' %>
+
+  <%= link_to 'Cancel', users_path, :class => 'btn btn-default' %>
+<% end %>

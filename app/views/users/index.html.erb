@@ -1,0 +1,32 @@
+<div class="page-header">
+  <h1>User</h1>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>email</th>
+      <th>name</th>
+      <th>role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.email, user_path(user) %></td>
+        <td><%= user.name %></td>
+        <td><%= user.role_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br><br>
+<%= link_to 'Add User', new_user_path, class: 'btn btn-default' %>
+
+
+<!--
+        <td>
+          <%#= link_to 'edit', edit_user_path(user), :class => 'btn btn-default btn-xs' %>
+          <%#= link_to 'destroy', user_path(user), method: :delete, data: { confirm:  'Are you sure?' }, class: 'btn btn-xs btn-danger' %>
+        </td> -->

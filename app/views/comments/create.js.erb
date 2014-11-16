@@ -1,0 +1,8 @@
+<% if @comment.errors.present? %>
+  $('#comment-form').html("<%=j render( 'comments/form', comment: @comment, task: @comment.task) %>");
+<% else %>
+  $('.reply_modal').modal('hide');
+  $('#comment-form').html("<%=j render( 'comments/form', comment: Comment.new, task: @comment.task) %>");
+  $('#comments-conainer').html("<%=j nested_comments( @comments) %>");
+  pushAlert("Comment was successfully created.");
+<% end %>

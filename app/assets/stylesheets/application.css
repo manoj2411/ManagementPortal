@@ -1,0 +1,45 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+html.turbolinks-progress-bar::before {
+  background-color: black !important;
+  height: 3px !important;
+}
+
+.nested_comments {
+  margin-left: 30px;
+}
+
+.comment {
+  padding: 10px;
+}
+
+.message {
+  padding: 0.5%;
+  margin: 1%;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.help-inline, .alert.alert-error {
+  color: #f00;
+}

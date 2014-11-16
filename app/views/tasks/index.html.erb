@@ -1,0 +1,31 @@
+
+<table class="table table-hover">
+  <caption><h1>Tasks</h1></caption>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Priority</th>
+      <th>Due date</th>
+      <th>Assigned to</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= link_to truncate(task.title), task %></td>
+        <td><%= truncate task.description, length: 120 %></td>
+        <td><%= task.status %></td>
+        <td><%= task.priority %></td>
+        <td><%= formatted_task_due_date task %></td>
+        <td><%= assigned_by_name_for_task(task) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path, class: 'btn btn-default' if current_user.can_manage_tasks? %>

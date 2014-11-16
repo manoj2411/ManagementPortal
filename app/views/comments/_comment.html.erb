@@ -1,0 +1,12 @@
+<div class="comment navbar navbar-default">
+  <div class="created_at">
+    <%= comment.created_at.strftime("%B %d, %Y at %l:%M %P") %> &nbsp;&nbsp; | &nbsp;&nbsp;
+    <span> By - <%= comment.user.name_with_email %></span>
+  </div>
+  <div class="message">
+    <%=raw comment.message %>
+  </div>
+  <div class="actions">
+    <%= link_to "Reply", new_task_comment_path(@task, parent_id: comment), class: 'btn btn-default', remote: true %>
+  </div>
+</div> <br>

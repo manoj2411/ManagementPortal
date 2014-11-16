@@ -1,0 +1,53 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @task.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @task.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @task.status %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @task.priority %>
+</p>
+
+<p>
+  <strong>Due date:</strong>
+  <%= formatted_task_due_date @task %>
+</p>
+
+<p>
+  <strong>Assigned to:</strong>
+  <%= assigned_to_name_for_task(@task) %>
+</p>
+
+<p>
+  <strong>Assigned by:</strong>
+  <%= assigned_by_name_for_task(@task) %>
+</p>
+
+<% if current_user.can_manage_tasks? %>
+  <%= link_to 'Edit', edit_task_path(@task) %> |
+  <%= link_to 'Back', tasks_path %> |
+  <%= link_to 'Delete', task_path, method: :delete, data: { confirm: 'Are you sure?'} %>
+<% end %>
+
+
+<br><br>
+
+<div id="comment-form">
+  <%= render 'comments/form', comment: @task.comments.build, task: @task %>
+</div>
+
+<div id="comments-conainer">
+  <%= nested_comments @comments %>
+</div>
+
