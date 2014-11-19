@@ -44,7 +44,7 @@
   </div>
 
   <div class="col-md-6">
-    <%= render 'map_container' if @user.data_collection_executive? -%>
+    <%= render 'map_container', user: @user if @user.data_collection_executive? -%>
   </div>
 </div>
 

@@ -13,4 +13,5 @@ function updateUserLocation(data) {
     handler.removeMarker(marker);
   }
   marker = handler.addMarker({lat: data.latitude,lng: data.longitude})
+  $('#last_updated_geolocation').text(data.update_at)
 }
