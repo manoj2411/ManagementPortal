@@ -26,7 +26,7 @@
 
 <p>
   <strong>Assigned to:</strong>
-  <%= assigned_to_name_for_task(@task) %>
+  <%= link_to_if current_user.manager_or_data_moderator?, assigned_to_name_for_task(@task), (@task.assigned_to || 'javascript:void(0)') %>
 </p>
 
 <p>
@@ -40,8 +40,7 @@
   <%= link_to 'Delete', task_path, method: :delete, data: { confirm: 'Are you sure?'} %>
 <% end %>
 
-
-<br><br>
+<hr>
 
 <div id="comment-form">
   <%= render 'comments/form', comment: @task.comments.build, task: @task %>

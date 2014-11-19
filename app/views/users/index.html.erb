@@ -22,7 +22,8 @@
 </table>
 
 <br><br>
-<%= link_to 'Add User', new_user_path, class: 'btn btn-default' %>
+
+<%= link_to 'Add User', new_user_path, class: 'btn btn-default' if current_user.manager? %>
 
 
 <!--

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :users
   resource :profile, only: [:edit, :update]
+  resource :geolocation, only: [:update]
 
   root 'tasks#index'
 

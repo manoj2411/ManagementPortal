@@ -1,0 +1,18 @@
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+
+
+<script>
+  $(function () {
+    handler = Gmaps.build('Google');
+    handler.buildMap({ internal: {id: 'map'} }, function(){
+      updateUserLocation({latitude: '<%= @user.geolocation.try(:latitude) || 28.61 %>', longitude: '<%= @user.geolocation.try(:longitude) || 77.23 %>'})
+      handler.map.centerOn(marker);
+    });
+    handler.getMap().setZoom(15);
+  })
+</script>
+
+

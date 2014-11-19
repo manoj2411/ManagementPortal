@@ -28,12 +28,15 @@ gem 'spring', group: :development
 
 gem 'ancestry'
 gem 'devise'
+gem 'gmaps4rails'
 # gem 'nprogress-rails'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
+gem 'pusher'
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
+gem 'underscore-rails'
 
 group :development do
   gem 'annotate'

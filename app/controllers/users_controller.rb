@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authorise_user
+  before_action :authorise_manager_or_data_moderator, only: [:index, :show]
+  before_action :authorise_manager, only: [:new, :create, :update, :destroy, :edit]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -60,7 +61,11 @@ class UsersController < ApplicationController
       params.require(:user).permit(:email, :name, :role)
     end
 
-    def authorise_user
+    def authorise_manager_or_data_moderator
+      redirect_to root_path, alert: 'Access denied' unless current_user.manager_or_data_moderator?
+    end
+
+    def authorise_manager
       redirect_to root_path, alert: 'Access denied' unless current_user.manager?
     end
 end

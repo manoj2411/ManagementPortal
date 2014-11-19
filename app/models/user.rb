@@ -4,9 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => ['facebook', 'twitter', 'google_oauth2']
 
-  has_many :authorizations
+  has_many :authorizations, dependent: :destroy
+  has_many :tasks, foreign_key: 'assigned_to_id'
+  has_one  :geolocation, dependent: :destroy
+
 
   scope :data_collection_executive, -> { where role: 3 }
+
 
   #  =================
   #  = Class methods =
@@ -41,6 +45,10 @@ class User < ActiveRecord::Base
     define_method "#{name}?" do
       role == indx + 1
     end
+  end
+
+  def manager_or_data_moderator?
+    data_moderator? or manager?
   end
 
   def can_manage_tasks?

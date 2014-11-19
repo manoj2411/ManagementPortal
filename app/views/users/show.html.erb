@@ -1,18 +1,58 @@
 <div class="page-header">
-  <h1>User</h1>
+  <h1 class="inline"> User </h1>
+    <% if current_user.manager? %>
+      <span class="float_right">
+        <%= link_to 'back', users_path, class: 'btn btn-default' %>
+        <%= link_to 'edit', edit_user_path(@user), class: 'btn btn-default' %>
+        <%= link_to 'destroy', user_path(@user), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
+      </span>
+    <% end %>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong>email:</strong></dt>
-  <dd><%= @user.email %></dd>
+<div class="row">
 
-  <dt><strong>name:</strong></dt>
-  <dd><%= @user.name %></dd>
+  <div class="col-md-6">
+    <span class="user_fields"> <strong>email:</strong> <%= @user.email %> </span>
+    <span class="user_fields"> <strong>name:</strong> <%= @user.name %> </span>
+    <span class="user_fields"> <strong>role:</strong> <%= @user.role_name %> </span>
 
-  <dt><strong>role:</strong></dt>
-  <dd><%= @user.role_name %></dd>
-</dl>
+    <% if @user.data_collection_executive? %>
+      <br><br>
+      <table class="table table-hover">
+        <caption><h4>Tasks</h4></caption>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Due date</th>
+          </tr>
+        </thead>
 
-<%= link_to 'back', users_path, class: 'btn btn-default' %>
-<%= link_to 'edit', edit_user_path(@user), class: 'btn btn-default' %>
-<%= link_to 'destroy', user_path(@user), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
+        <tbody>
+          <% @user.tasks.each do |task| %>
+            <tr>
+              <td><%= link_to truncate(task.title), task %></td>
+              <td><%= task.status %></td>
+              <td><%= task.priority %></td>
+              <td><%= formatted_task_due_date task %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+
+  <div class="col-md-6">
+    <%= render 'map_container' if @user.data_collection_executive? -%>
+  </div>
+</div>
+
+
+<%# Subscribe for user's location update %>
+<script type="text/javascript">
+  var channel = pusher.subscribe("user-<%= @user.id %>-location");
+  channel.bind('update', function(data) {
+    updateUserLocation(data);
+  });
+</script>

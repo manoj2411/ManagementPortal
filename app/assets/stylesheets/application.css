@@ -43,3 +43,16 @@ html.turbolinks-progress-bar::before {
 .help-inline, .alert.alert-error {
   color: #f00;
 }
+
+.inline {
+  display: inline;
+}
+
+.float_right {
+  float: right;
+}
+
+.user_fields {
+  padding-left: 10px;
+  padding-right: 10px;
+}
