@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -26,6 +27,7 @@ gem 'turbolinks'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', group: :development
 
+
 gem 'ancestry'
 gem 'devise'
 gem 'gmaps4rails'
@@ -34,6 +36,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'pusher'
+gem 'rails_12factor', group: :production
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'underscore-rails'
