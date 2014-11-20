@@ -1,6 +1,5 @@
 class ReportController < ApplicationController
   before_action :authorise_manager
 
-  def index
-  end
+  # def index;end
 end

@@ -53,6 +53,6 @@ html.turbolinks-progress-bar::before {
 }
 
 .user_fields {
-  padding-left: 10px;
   padding-right: 10px;
+  margin-top: 10px;
 }

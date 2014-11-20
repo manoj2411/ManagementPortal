@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :new]
   end
 
-  resources :users
+  resources :users do
+    resources :messages, only: [:new, :create]
+  end
+
   resource :profile, only: [:edit, :update]
   resource :geolocation, only: [:update]
 

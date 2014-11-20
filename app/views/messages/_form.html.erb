@@ -1,0 +1,26 @@
+<div class="modal message_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">SMS content</h4>
+      </div>
+      <div class="modal-body">
+
+        <%= simple_form_for [@user, @message], remote: true do |f| %>
+          <%= f.error_notification %>
+
+          <%= f.input :content, as: :text, input_html: { class: 'form-control'} %>
+          <%= error_span(@message[:content]) %>
+
+          <br>
+          <div class="form-group">
+            <%= f.submit 'Send', class: 'btn btn-primary', data: {disable_with: 'Sending...'} %>
+          </div>
+
+        <% end %>
+
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

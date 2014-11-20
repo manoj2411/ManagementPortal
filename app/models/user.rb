@@ -6,8 +6,9 @@ class User < ActiveRecord::Base
 
   has_many :authorizations, dependent: :destroy
   has_many :tasks, foreign_key: 'assigned_to_id'
+  has_many :messages, dependent: :destroy
+  has_many :sent_messages, foreign_key: 'sent_by_id'
   has_one  :geolocation, dependent: :destroy
-
 
   scope :data_collection_executive, -> { where role: 3 }
 
@@ -98,4 +99,5 @@ end
 #  created_at             :datetime
 #  updated_at             :datetime
 #  blocked                :boolean
+#  phone                  :string(255)
 #

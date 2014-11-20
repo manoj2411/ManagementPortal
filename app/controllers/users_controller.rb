@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    @users = User.select([:id, :name, :email, :role])
+    @users = User.select([:id, :name, :email, :role, :phone])
   end
 
   # GET /users/1
@@ -65,7 +65,4 @@ class UsersController < ApplicationController
       end
     end
 
-    def authorise_manager_or_data_moderator
-      redirect_to root_path, alert: 'Access denied' unless current_user.manager_or_data_moderator?
-    end
 end

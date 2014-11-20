@@ -1,0 +1,9 @@
+<div class="comment navbar navbar-default">
+  <div class="created_at">
+    <%= message.created_at.strftime("%B %d, %Y at %l:%M %P") %> &nbsp;&nbsp; | &nbsp;&nbsp;
+    <span> By - <%= message.sent_by.name_with_email %></span>
+  </div>
+  <div class="message">
+    <%=raw message.content %>
+  </div>
+</div> <br>

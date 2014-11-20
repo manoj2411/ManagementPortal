@@ -7,6 +7,7 @@
     <tr>
       <th>email</th>
       <th>name</th>
+      <th>phone</th>
       <th>role</th>
     </tr>
   </thead>
@@ -15,6 +16,7 @@
       <tr>
         <td><%= link_to user.email, user_path(user) %></td>
         <td><%= user.name %></td>
+        <td><%= user.phone || 'NA' %></td>
         <td><%= user.role_name %></td>
       </tr>
     <% end %>

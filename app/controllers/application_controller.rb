@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
     def authorise_manager
       redirect_to root_path, alert: 'Access denied' unless current_user.manager?
     end
+
+    def authorise_manager_or_data_moderator
+      redirect_to root_path, alert: 'Access denied' unless current_user.manager_or_data_moderator?
+    end
 end

@@ -7,18 +7,18 @@
         <%= link_to 'destroy', user_path(@user), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
       </span>
     <% end %>
+    <%= link_to 'Blocked', 'javascript:void(0)', class: 'btn btn-danger float_right' if @user.blocked? %>
 </div>
 
 <div class="row">
 
   <div class="col-md-6">
-    <%= link_to 'Blocked', 'javascript:void(0)', class: 'btn btn-danger' if @user.blocked? %>
-    <span class="user_fields"> <strong>email:</strong> <%= @user.email %> </span>
-    <span class="user_fields"> <strong>name:</strong> <%= @user.name %> </span>
-    <span class="user_fields"> <strong>role:</strong> <%= @user.role_name %> </span>
+    <p class="user_fields"><strong>email:</strong> <%= @user.email %> </p>
+    <p class="user_fields"><strong>name:</strong> <%= @user.name %> </p>
+    <p class="user_fields"><strong>role:</strong> <%= @user.role_name %> </p>
+    <p class="user_fields"><strong>Phone:</strong> <%= @user.phone.present? ? new_message_link(@user) : 'NA' %> </p>
 
     <% if @user.data_collection_executive? %>
-      <br><br>
       <table class="table table-hover">
         <caption><h4>Tasks</h4></caption>
         <thead>
@@ -41,6 +41,9 @@
           <% end %>
         </tbody>
       </table>
+      <hr>
+      <h4>Messages</h4>
+      <%= render partial: 'messages/message', collection: @user.messages %>
     <% end %>
   </div>
 

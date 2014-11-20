@@ -1,0 +1,4 @@
+$('.message_modal').modal('hide');
+$('.message_modal').remove();
+$('body').append('<%=j render("messages/form") %>');
+$('.message_modal').modal('show');

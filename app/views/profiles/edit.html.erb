@@ -11,6 +11,9 @@
   <%= f.input :name %>
   <%= error_span(current_user[:name]) %>
 
+  <%= f.input :phone %>
+  <%= error_span(current_user[:phone]) %>
+
   <br><br>
   <%= f.button :submit, 'Update', class: 'btn-dafult', data: {disable_with: 'Updating...'} %>
 <% end %>
