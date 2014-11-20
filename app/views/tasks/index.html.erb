@@ -20,7 +20,7 @@
         <td><%= task.status %></td>
         <td><%= task.priority %></td>
         <td><%= formatted_task_due_date task %></td>
-        <td><%= assigned_by_name_for_task(task) %></td>
+        <td><%= assigned_to_name_for_task(task) %></td>
       </tr>
     <% end %>
   </tbody>
