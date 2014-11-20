@@ -12,6 +12,7 @@
 <div class="row">
 
   <div class="col-md-6">
+    <%= link_to 'Blocked', 'javascript:void(0)', class: 'btn btn-danger' if @user.blocked? %>
     <span class="user_fields"> <strong>email:</strong> <%= @user.email %> </span>
     <span class="user_fields"> <strong>name:</strong> <%= @user.name %> </span>
     <span class="user_fields"> <strong>role:</strong> <%= @user.role_name %> </span>

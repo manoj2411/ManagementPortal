@@ -10,7 +10,15 @@
   <%= f.input :role, collection: [['Data Collection Executive', 3], ['Data Moderator', 2], ['Manager', 1]], include_blank: false %>
   <%= error_span(@user[:role]) %>
 
-  <br>
+  <% unless @user.new_record? %>
+    <br>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :blocked, label: false %> Block
+      </label>
+    </div>
+  <% end %>
+    <br>
   <%= f.button :submit, :class => 'btn-primary' %>
 
   <%= link_to 'Cancel', users_path, :class => 'btn btn-default' %>
