@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
         redirect_to new_user_session_path, alert: 'You account has been blocked. Please contact Manager.'
       end
     end
+
+    def authorise_manager
+      redirect_to root_path, alert: 'Access denied' unless current_user.manager?
+    end
 end

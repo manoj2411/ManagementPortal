@@ -6,6 +6,11 @@ class Task < ActiveRecord::Base
   has_many :comments
 
   validates :title, :description, presence: true
+
+  scope :pending, -> { where status: 'Pending'}
+  scope :in_progress, -> { where status: 'In progress'}
+  scope :completed, -> { where status: 'Completed'}
+
 end
 
 # == Schema Information

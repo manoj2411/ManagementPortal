@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require underscore
 //= require gmaps/google
+//= require highcharts
 //= require turbolinks
 //= require_tree .
 

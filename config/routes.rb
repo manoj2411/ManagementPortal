@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'report' => 'report#index'
+
   devise_for :users, skip: [:registrations], controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   resources :tasks do
