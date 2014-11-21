@@ -1,6 +1,10 @@
-<h1>Editing task</h1>
+<div class="page-header">
+  <h3 class="inline">Editing task</h3>
+  <span class="float_right">
+    <%= link_to 'Show', @task, class: 'btn btn-default' %>
+    <%= link_to 'Back', tasks_path, class: 'btn btn-default' %>
+  </span>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @task %> |
-<%= link_to 'Back', tasks_path %>

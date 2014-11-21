@@ -1,24 +1,30 @@
 <%= simple_form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :email %>
-  <%= error_span(@user[:email]) %>
+  <div class="form-group">
+    <div class="col-xs-4">
+      <%= f.input :email, input_html: { class: 'form-control' } %>
+      <%= error_span(@user[:email]) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-4">
+      <%= f.input :name, input_html: { class: 'form-control' } %>
+      <%= error_span(@user[:name]) %>
+    </div>
+  </div>
 
-  <%= f.input :name %>
-  <%= error_span(@user[:name]) %>
-
-  <%= f.input :role, collection: [['Data Collection Executive', 3], ['Data Moderator', 2], ['Manager', 1]], include_blank: false %>
-  <%= error_span(@user[:role]) %>
+  <%= f.input :role, collection: [['Data Collection Executive', 3], ['Data Moderator', 2], ['Manager', 1]], include_blank: false, input_html: { class: 'form-control'}, wrapper_html: { style: "width: 200px"} %>
 
   <% unless @user.new_record? %>
-    <br>
     <div class="checkbox">
       <label>
         <%= f.check_box :blocked, label: false %> Block
       </label>
     </div>
   <% end %>
-    <br>
+
+  <br>
   <%= f.button :submit, :class => 'btn-primary' %>
 
   <%= link_to 'Cancel', users_path, :class => 'btn btn-default' %>

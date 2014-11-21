@@ -1,5 +1,9 @@
-<h1>New task</h1>
+<div class="page-header">
+  <h3 class="inline">New task</h3>
+  <span class="float_right">
+    <%= link_to 'Back', tasks_path, class: 'btn btn-default' %>
+  </span>
+</div>
+
 
 <%= render 'form' %>
-
-<%= link_to 'Back', tasks_path %>

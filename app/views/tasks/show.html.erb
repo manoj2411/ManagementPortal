@@ -1,11 +1,15 @@
+<div class="page-header">
+  <h3 class="inline"><%= @task.title %></h3>
+  <% if current_user.can_manage_tasks? %>
+    <span class="float_right">
+      <%= link_to 'Edit', edit_task_path(@task), class: 'btn btn-default' %>
+      <%= link_to 'Back', tasks_path, class: 'btn btn-default' %>
+      <%= link_to 'Delete', task_path, method: :delete, data: { confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
+    </span>
+  <% end %>
+</div>
 
 <p>
-  <strong>Title:</strong>
-  <%= @task.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
   <%= @task.description %>
 </p>
 
@@ -33,12 +37,6 @@
   <strong>Assigned by:</strong>
   <%= assigned_by_name_for_task(@task) %>
 </p>
-
-<% if current_user.can_manage_tasks? %>
-  <%= link_to 'Edit', edit_task_path(@task) %> |
-  <%= link_to 'Back', tasks_path %> |
-  <%= link_to 'Delete', task_path, method: :delete, data: { confirm: 'Are you sure?'} %>
-<% end %>
 
 <hr>
 

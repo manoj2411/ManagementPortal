@@ -1,21 +1,31 @@
 <div class="page-header">
-  <h1>Profile</h1>
+  <h3>Profile</h3>
 </div>
 
 <%= simple_form_for current_user, as: :profile, url: profile_path, html: { class: 'form-horizontal' } do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input :email, input_html: { disabled: :disabled} %>
-  <%= error_span(current_user[:email]) %>
+  <div class="form-group">
+    <div class="col-xs-4">
+      <%= f.input :email, input_html: { disabled: :disabled, class: 'form-control'} %>
+      <%= error_span(current_user[:email]) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-4">
+      <%= f.input :name, input_html: { class: 'form-control' } %>
+      <%= error_span(current_user[:name]) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-xs-4">
+      <%= f.input :phone, input_html: { class: 'form-control' } %>
+      <%= error_span(current_user[:phone]) %>
+    </div>
+  </div>
 
-  <%= f.input :name %>
-  <%= error_span(current_user[:name]) %>
-
-  <%= f.input :phone %>
-  <%= error_span(current_user[:phone]) %>
-
-  <br><br>
-  <%= f.button :submit, 'Update', class: 'btn-dafult', data: {disable_with: 'Updating...'} %>
+  <br>
+  <%= f.button :submit, 'Update', class: 'btn-primary', data: {disable_with: 'Updating...'} %>
 <% end %>
 
 
@@ -26,7 +36,7 @@ Connect your social accounts
 <% provider_names = [] %>
 <% current_user.authorizations.each do |authorization| %>
   <% provider_names << authorization.provider %>
-  <%= link_to (authorization.provider.upcase), 'javascript:void(0)', class: 'btn btn-primary active', title: "Already connected" %>
+  <%= link_to (authorization.provider.upcase), 'javascript:void(0)', class: 'btn btn-info active', title: "Already connected" %>
 <% end %>
 
 <% (User.omniauth_providers - provider_names).each do |provider| %>

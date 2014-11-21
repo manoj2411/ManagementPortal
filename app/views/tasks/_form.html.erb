@@ -4,14 +4,14 @@
 
   <%= f.input :title, input_html: { class: 'form-control'}, placeholder: 'Title' %>
   <%= f.input :description, input_html: { class: 'form-control', rows: 7}, placeholder: 'Description' %>
-  <%= f.input :status, collection: ['Pending', 'In progress', 'Completed'], include_blank: false %>
-  <%= f.input :priority, collection: ['Low', 'Normal', 'High'], include_blank: false %>
+  <%= f.input :status, collection: ['Pending', 'In progress', 'Completed'], include_blank: false, input_html: { class: 'form-control'}, wrapper_html: { style: "width: 200px"} %>
+  <%= f.input :priority, collection: ['Low', 'Normal', 'High'], include_blank: false, input_html: { class: 'form-control'}, wrapper_html: { style: "width: 200px"} %>
 
   <%= f.label :due_date %>
   <%= f.datetime_select :due_date, {minute_step: 30, ampm: true} -%>
 
-  <%= f.association :assigned_to, collection: User.data_collection_executive %>
+  <%= f.association :assigned_to, collection: User.data_collection_executive, input_html: { class: 'form-control'}, wrapper_html: { style: "width: 200px"} %>
 
-  <br><br>
-  <%= f.button :submit, data: {disable_with: 'Saving...'} %>
+  <br>
+  <%= f.button :submit, data: {disable_with: 'Saving...'}, class: 'bt btn-primary' %>
 <% end %>
