@@ -17,9 +17,9 @@ Features required:
 
 Roles & Responsibility of Management Portal's users:
 
-<tt>Manager</tt>: Can create, delete, block, unblock (Data Collection Executive & Data Moderators).
-<tt>Data Collection Executive</tt>: Can update its task list with comments having a corresponding action like, “Task Started, Task Completed, Task Incompleted”.
-<tt>Data Moderators</tt>: Can create tasks for Data Collection Executives & monitor them about their live locations, and can send sms for notifying them for any kind of updates.
+* <tt>Manager</tt>: Can create, delete, block, unblock (Data Collection Executive & Data Moderators).
+* <tt>Data Collection Executive</tt>: Can update its task list with comments having a corresponding action like, “Task Started, Task Completed, Task Incompleted”.
+* <tt>Data Moderators</tt>: Can create tasks for Data Collection Executives & monitor them about their live locations, and can send sms for notifying them for any kind of updates.
 
 
 
