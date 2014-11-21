@@ -1,28 +1,28 @@
-== README
+== Problem Definition
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A "Management Portal" for managing the daily activity of Data Collection Executives.
 
-Things you may want to cover:
+There are three kinds of users:
 
-* Ruby version
+* Manager
+* Data Collection Executive
+* Data Moderators
 
-* System dependencies
+Features required:
 
-* Configuration
+* Login (Email, Facebook, Google & Twitter)
+* Task Management - Create, Update, & Delete a task. Comments in Task
+* Live Location monitoring of Data Collection Executives like in Uber Cab app.
+* Reporting Tool. - Can be Accessed only by Managers. Show one graph of completed, incompleted, inprogress tasks
 
-* Database creation
+Roles & Responsibility of Management Portal's users:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<tt>Manager</tt>: Can create, delete, block, unblock (Data Collection Executive & Data Moderators).
+<tt>Data Collection Executive</tt>: Can update its task list with comments having a corresponding action like, “Task Started, Task Completed, Task Incompleted”.
+<tt>Data Moderators</tt>: Can create tasks for Data Collection Executives & monitor them about their live locations, and can send sms for notifying them for any kind of updates.
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+
+
