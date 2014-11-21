@@ -7,6 +7,7 @@ class Task < ActiveRecord::Base
 
   validates :title, :description, presence: true
 
+  scope :order_by_status, -> { order('status desc')}
   scope :pending, -> { where status: 'Pending'}
   scope :in_progress, -> { where status: 'In progress'}
   scope :completed, -> { where status: 'Completed'}
